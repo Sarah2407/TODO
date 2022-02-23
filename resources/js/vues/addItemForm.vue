@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         addItem() {
-            if (this.item.name === '') {
+            if (this.item.name == '') {
                 return;
             }
 
@@ -27,8 +27,9 @@ export default {
                 item: this.item
             })
             .then (response => {
-                if(response.status === '201'){
-                    this.item.name === ""
+                if(response.status == '200'){
+                    this.item.name = ""
+                    this.$emit('reloadlist')
                 }
             })
             .catch(error=>{
